@@ -1,6 +1,6 @@
 import { Header } from "./components/Header";
 import { HabitForm } from "./components/HabitForm";
-import { HeaderList } from "./components/HeaderList";
+import { HeaderList } from "./components/HabitList";
 
 export default function App() {
   return (

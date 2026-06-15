@@ -1,30 +1,25 @@
 import { Button } from "./Button";
-import { eachDayOfInterval, endOfWeek, startOfWeek, format, isFuture, isSameDay, subDays } from 'date-fns';
-
-export type Habit = {
-    id: string;
-    name: string;
-    completions: Date[];
-}
+import { format, isFuture, isSameDay, subDays } from 'date-fns';
+import { useHabits, type Habit } from "../context/useHabits";
 
 type HabitListProps = {
-    habits: Habit[];
-    deleteHabit: (id: string) => void;
-    toggleHabit: (id: string, date: Date) => void;
+    visibleDates: Date[];
 }
 
-export function HabitList({ habits, deleteHabit, toggleHabit }: HabitListProps ) {
+export function HabitList({ visibleDates }: HabitListProps) {
+    const { habits } = useHabits();
+
     if (habits.length === 0) {
         return (
-            <div className="flex flex-col gap-2 bg-zinc-800 p-4 rounded-lg">
-                <p>No habits yet</p>
+            <div className="text-center text-zinc-500 py-12">
+                <p>No habits yet.</p>
             </div>
         )
     }
     return (
         <div className="flex flex-col gap-3">
             {habits.map(habit => (
-                <HabitItem deleteHabit={deleteHabit} toggleHabit={toggleHabit} key={habit.id} habit={habit}/>
+                <HabitItem key={habit.id} habit={habit} visibleDates={visibleDates}/>
             ))}
         </div>
     )
@@ -32,17 +27,12 @@ export function HabitList({ habits, deleteHabit, toggleHabit }: HabitListProps )
 
 type HabitItemProps = {
     habit: Habit;
-    deleteHabit: (id: string) => void;
-    toggleHabit: (id: string, date: Date) => void;
+    visibleDates: Date[];
+
 }
 
-function HabitItem( { habit, deleteHabit, toggleHabit }:  HabitItemProps) {
-    const visibleDates = eachDayOfInterval( 
-        {
-            start: startOfWeek(new Date(), { weekStartsOn: 1 }), 
-            end: endOfWeek(new Date(), { weekStartsOn: 1 })
-        }
-    );
+function HabitItem( { habit, visibleDates }:  HabitItemProps) {
+    const { deleteHabit, toggleHabit } = useHabits();
 
     const streak = getStreak(habit.completions);
 

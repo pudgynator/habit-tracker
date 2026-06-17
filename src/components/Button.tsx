@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type Variant = 'primary' | 'secondary' | 'ghost-destructive';
+type Variant = 'primary' | 'secondary' | 'ghost-destructive' | 'contribute';
 
 type ButtonProps = {
     variant?: Variant;
@@ -29,6 +29,8 @@ function getVariantStyles(variant: Variant) {
             return 'bg-zinc-700 hover:bg-zinc-600 text-zinc-400 '
         case 'ghost-destructive':
             return 'hover:bg-red-800 text-red-800 hover:text-red-200'
+        case 'contribute':
+            return 'bg-zinc-700 w-1'
         default: 
             throw new Error(`Unknown variant: ${variant satisfies never}`)
     }

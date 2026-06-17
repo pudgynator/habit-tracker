@@ -1,9 +1,7 @@
 import { format  } from "date-fns";
 import { Button } from "./Button";
-import type { Habit } from "../context/useHabits";
 
 type ContributionProps = {
-    habit: Habit;
     yearDates : Date[];
 }
 

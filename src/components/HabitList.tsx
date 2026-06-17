@@ -11,13 +11,13 @@ export function HabitList({ visibleDates }: HabitListProps) {
 
     if (habits.length === 0) {
         return (
-            <div className="text-center text-zinc-500 py-12">
+            <div className="text-center text-zinc-500 py-12 mb-4">
                 <p>No habits yet.</p>
             </div>
         )
     }
     return (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 mb-4">
             {habits.map(habit => (
                 <HabitItem key={habit.id} habit={habit} visibleDates={visibleDates}/>
             ))}

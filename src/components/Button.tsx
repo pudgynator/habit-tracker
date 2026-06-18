@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type Variant = 'primary' | 'secondary' | 'ghost-destructive' | 'contribute';
+type Variant = 'primary' | 'secondary' | 'ghost-destructive' | 'contribute' | 'none' | 'low' | 'medium' | 'high' | 'max';
 
 type ButtonProps = {
     variant?: Variant;
@@ -29,9 +29,25 @@ function getVariantStyles(variant: Variant) {
             return 'bg-zinc-700 hover:bg-zinc-600 text-zinc-400 '
         case 'ghost-destructive':
             return 'hover:bg-red-800 text-red-800 hover:text-red-200'
-        case 'contribute':
+        case 'none': 
             return 'bg-zinc-700 w-1'
+        case 'low':
+            return 'bg-violet-600 w-1'
+        case 'medium':
+            return 'bg-violet-700 w-1'
+        case 'high':
+            return 'bg-violet-800 w-1'
+        case 'max':
+            return 'bg-violet-900 w-1'
         default: 
-            throw new Error(`Unknown variant: ${variant satisfies never}`)
+            throw new Error(`Unknown variant`)
     }
 }
+
+// function getActivityStyles(activity: Activity) {
+//     switch( activity ) {
+
+//         default: 
+//             throw new Error(`Unknown variant: ${activity satisfies never}`)
+//     }
+// }

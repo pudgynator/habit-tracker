@@ -12,25 +12,29 @@ import {
   endOfYear,
   startOfWeek,
   startOfYear,
+  subYears,
 } from "date-fns";
+
 
 export default function App() {
   const [weekOffset, setWeekOffset] = useState(0);
-  const week = addWeeks(new Date(), weekOffset);
+
   const date = new Date();
 
+  const week = addWeeks(date, weekOffset);
   const visibleDates = eachDayOfInterval({
-    start: startOfWeek(week, { weekStartsOn: 1 }),
-    end: endOfWeek(week, { weekStartsOn: 1 }),
+    start: startOfWeek(week, { weekStartsOn: 0 }),
+    end: endOfWeek(week, { weekStartsOn: 0 }),
   });
 
   const monthName = eachMonthOfInterval({
     start: startOfYear(date),
     end: endOfYear(date),
   });
+
   const yearDates = eachDayOfInterval({
-    start: startOfYear(date),
-    end: endOfYear(date),
+    start: startOfWeek(subYears(date, 1), { weekStartsOn: 0 }),
+    end: endOfWeek(date, { weekStartsOn: 0 }),
   });
 
   return (

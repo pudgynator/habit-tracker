@@ -41,7 +41,7 @@ export function MonthLabels({ monthName, monthColumnMap}: MonthProps) {
                         </div>
                     );
                 })
-            };      
+            }
         </div>
 
     )

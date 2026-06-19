@@ -1,12 +1,14 @@
 # Habit Tracker
 
-A simple habit tracking application built with React and TypeScript.
+A habit tracking application built with React and TypeScript.
 
 ## Features
 
-* Create new habits
+* Create and manage new habits
 * Mark habits as completed for specific days
+* Track daily progress with a contribution calendar
 * Track completion streaks
+* View habits and completion history
 * Delete habits
 * Navigate between weeks
 * Responsive and user-friendly interface
@@ -17,6 +19,7 @@ A simple habit tracking application built with React and TypeScript.
 * TypeScript
 * Tailwind CSS
 * date-fns
+* Vite
 
 ## Getting Started
 
@@ -40,4 +43,4 @@ npm run dev
 
 ## Project Goal
 
-This project was created to practice React, TypeScript, state management, component composition, and working with dates.
+This project was created to practice React, TypeScript, state management, component composition, and working with dates and date-fns.

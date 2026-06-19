@@ -2,7 +2,7 @@ import { Header } from "./components/Header";
 import { HabitForm } from "./components/HabitForm";
 import { HabitList } from "./components/HabitList";
 import { HabitProvider } from "./context/HabitProvider";
-import { Contribution } from "./components/Contribution";
+import { Contribution } from "./components/Contribution/Contribution";
 import { useState } from "react";
 import {
     addWeeks,

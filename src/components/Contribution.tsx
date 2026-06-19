@@ -9,7 +9,10 @@ type ContributionProps = {
 }
 
 const levels = ['none', 'low', 'medium', 'high', 'max'] as const;
-
+const dateNow = new Date();
+// const currMonth = dateNow.getMonth();
+const currMonth = dateNow.setDate(dateNow.getDate())
+console.log(currMonth)
 export function Contribution({  yearDates, monthName }: ContributionProps) {
     const { habits } = useHabits();
 
@@ -35,12 +38,12 @@ export function Contribution({  yearDates, monthName }: ContributionProps) {
         const map = new Map<number, number>();
         yearDates.forEach((day, index) => {
             const m = getMonth(day);
+
             if (map.has(m)) {
                 return;
             }
 
             const col = Math.floor(index / 7)
-
             map.set(m, col);
         })
 
@@ -52,19 +55,39 @@ export function Contribution({  yearDates, monthName }: ContributionProps) {
         <div className="bg-zinc-800 px-4 py-2  rounded-lg ">
 
             <div className="overflow-x-auto">
-            <div className="flex h-7 relative">
-                {monthName.map((month, index) => (
+            <div className="flex h-7 relative w-max min-w-full">
+                <div 
+                    className="flex absolute whitespace-nowrap"
+                    style={{left: 0}}
+                >
+                    {format(dateNow, 'MMM')}
+                </div>
+
+                {monthName.map((month, index) => {
+                    const current = monthColumnMap.get(index) * 16 + (monthColumnMap.get(index) * 4)
+
+                    const m = getMonth(month);
+                    if(m === currMonth) {
+                        return
+                    }
+                    return(
+                        
                     <div 
-                        className={`flex absolute ml-[px]`}
+                        className={`flex absolute whitespace-nowrap`}
                         key={month.toISOString()}
-                        style={{ left: `${
-                            monthColumnMap.get(index) * 16 + 
-                            (monthColumnMap.get(index) * 4)
-                        }px`}}
+                        style={{ left: `${current}px`}}
                     >
-                        {format(month, "MMM")}
+                        {format(month, 'MMM')}
                     </div>
-                ))}
+                    )
+                })}
+
+                <div 
+                    className="absolute whitespace-nowrap"
+                    style={{ left: `100%`}}
+                >
+                    {format(dateNow, 'MMM')}
+                </div>
             </div>
 
             <div className="grid w-max grid-cols-53 grid-rows-7 grid-flow-col gap-y-1 gap-x-1 mb-1">

@@ -32,22 +32,14 @@ function getVariantStyles(variant: Variant) {
         case 'none': 
             return 'bg-zinc-700 w-1'
         case 'low':
-            return 'bg-violet-600 w-1'
+            return 'bg-violet-300 w-1'
         case 'medium':
-            return 'bg-violet-700 w-1'
+            return 'bg-violet-500 w-1'
         case 'high':
-            return 'bg-violet-800 w-1'
+            return 'bg-violet-600 w-1'
         case 'max':
-            return 'bg-violet-900 w-1'
+            return 'bg-violet-800 w-1'
         default: 
             throw new Error(`Unknown variant`)
     }
 }
-
-// function getActivityStyles(activity: Activity) {
-//     switch( activity ) {
-
-//         default: 
-//             throw new Error(`Unknown variant: ${activity satisfies never}`)
-//     }
-// }

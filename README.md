@@ -15,7 +15,7 @@ A habit tracking application built with React and TypeScript.
 
 ## Demo
 
-![Demo](./assets/chat-demo.gif)
+![Demo](./assets/tracker-demo.gif)
 
 ## Technologies
 

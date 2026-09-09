@@ -13,6 +13,10 @@ A habit tracking application built with React and TypeScript.
 * Navigate between weeks
 * Responsive and user-friendly interface
 
+## Demo
+
+[View demo](./assets/tracker-demo.gif)
+
 ## Technologies
 
 * React

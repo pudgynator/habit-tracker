@@ -13,6 +13,10 @@ A habit tracking application built with React and TypeScript.
 * Navigate between weeks
 * Responsive and user-friendly interface
 
+## Live demo
+
+[habit-tracker.dobrydnyk-m.workers.dev](https://habit-tracker.dobrydnyk-m.workers.dev/)
+
 ## Demo
 
 ![Demo](./assets/tracker-demo.gif)

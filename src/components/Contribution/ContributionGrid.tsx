@@ -1,9 +1,14 @@
 import { format, isFuture } from "date-fns";
+import type { Habit } from "../../context/useHabits";
 import { Button } from "../Button";
 import { getContributionLevel } from "./ContributionUtils";
 
+type ContributionGridProps = {
+    yearDates: Date[];
+    habits: Habit[];
+}
 
-export function ContributionGrid( {yearDates, habits}) {
+export function ContributionGrid({ yearDates, habits }: ContributionGridProps) {
     return(
         <div className="grid w-max grid-cols-53 grid-rows-7 grid-flow-col gap-y-1 gap-x-1 mb-1">
             {yearDates.map(date => {

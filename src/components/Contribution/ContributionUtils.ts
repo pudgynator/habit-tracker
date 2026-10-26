@@ -1,4 +1,5 @@
 import { isSameDay } from "date-fns";
+import type { Habit } from "../../context/useHabits";
 
 export const levels = [
     'none',
@@ -8,7 +9,7 @@ export const levels = [
     'max'
 ] as const;
 
-export function getContributionLevel(date: Date, habits) {
+export function getContributionLevel(date: Date, habits: Habit[]) {
     
     const totalHabits = habits.length;
     if( totalHabits === 0 ) return 'none';
